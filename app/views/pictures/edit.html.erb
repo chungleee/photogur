@@ -5,6 +5,16 @@
 </p>
 
 <%= form_for @picture do |f| %>
+
+  <% if @picture.errors.any? %>
+    <h2>Errors:</h2>
+      <ul>
+        <% @picture.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+  <% end %>
+
   <p>
     <%= f.label :artist %><br>
     <%= f.text_field :artist %>
